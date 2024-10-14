@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a481e1a-9c10-483b-8af2-278d6ee7e3bd" name="Changes" comment="" />
+    <list default="true" id="6a481e1a-9c10-483b-8af2-278d6ee7e3bd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/LearnReactNative/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/LearnReactNative/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LearnReactNative/android/app/src/main/java/com/learnreactnative/MainApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/LearnReactNative/android/app/src/main/java/com/learnreactnative/MainApplication.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,9 +16,12 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2nLZkEyM6zzAflyVUGlLyBelV8q" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -28,6 +34,7 @@
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/sim/Desktop/StudyRNCLI"
   }
