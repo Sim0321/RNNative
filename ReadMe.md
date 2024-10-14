@@ -88,7 +88,7 @@
 
   - IOS App Status
     - Not running -> Inactive(Foreground) -> Active(Foreground) -> Background -> Suspended
-      <img src="https://github.com/user-attachments/assets/977b13f8-fd08-4692-86de-b2fd22122ea9"  width="400" height="200"/>
+      <img src="./image/ios_app_status.png"  width="500" height="300"/>
   - AppDelegate
 
     - Android에서 activity처럼 화면을 구성하는 단위
@@ -104,9 +104,10 @@
 
 - 특정 리소스를 필요로 할 때 사용자에게 허용 할것인지 물어보는 것
 - ## Ios Permissions flow
-  <img src="https://github.com/user-attachments/assets/bfbe654b-9034-4a8d-a717-87605e1e9c13"  width="400" height="200"/>
+  <img src="./image/ios_permission_flow.png"  width="400" height="200"/>
+
 - ## Android
-<img src="https://github.com/user-attachments/assets/850c337e-5ac3-4c26-bfe9-ea48055d31bf"  width="400" height="200"/>
+  <img src="./image/android_permission_flow.png"  width="400" height="200"/>
 
 ### 자주 사용하는 권한
 
@@ -140,7 +141,7 @@
 
 ## React Native 동작 원리
 
-<img src="https://github.com/user-attachments/assets/41f0ed72-f582-4258-8fa0-bd641d262e25"  width="400" height="200"/>
+<img src="./image/rn_동작원리.png"  width="400" height="200"/> <br>
 - Thread란?
   - 실행되는 프로세스 내에서 실제로 작업을 실행하는 주체
   - 명령어를 실행하여 처리하는 주체
@@ -205,10 +206,10 @@
   - JSI(Javascript Interface) : C++ 객체에 대한 참조를 할 수 있게 해주는 역할
 
 - 기존 아키텍처 <br>
-  <img src="https://github.com/user-attachments/assets/e3347aee-5be5-490d-afad-f8ec7482684a"  width="400" height="200"/>
+  <img src="./image/old_architecture.png"  width="400" height="200"/>
 
 - 새로운 아키텍처<br>
-  <img src="https://github.com/user-attachments/assets/af4a617b-e72c-40a5-afa9-f875a0136b0f"  width="400" height="200"/>
+  <img src="./image/new_architecture.png"  width="400" height="200"/>
 
 - 새로운 아키텍처 도입 후 얻은 것
   1.  동기 실행이 가능하게 됨
@@ -257,11 +258,11 @@
 - Bytecode 형태로 미리 컴파일 하여 저장 해 둔 뒤 사용
 - 즉, 앱이 최초 로딩시 js bundle 파일을 읽어와 동작 가능한 javascript로 compile 하게되는데
 - 이 과정이 대략 4초(Android 기준) 정도 걸리는 것으로 파악. <br>
-  <img src="https://github.com/user-attachments/assets/e16af574-b543-4a84-bfa7-2082db0f425f"  width="400" height="200"/>
+  <img src="./image/no_hermes.png"  width="600" height="200"/>
 - Hermes는 앱 빌드 시간에 parse와 compile등 필요한 작업을 빌드 할 때 하도록 함
 - Bytecode 형태로 미리 컴파일 해두면 실행만 시키면 되기 때문<br>
 
-  <img src="https://github.com/user-attachments/assets/9e3770e6-8ec9-415e-b2e1-13691310704c"  width="400" height="200"/>
+  <img src="./image/hermes.png"  width="600" height="200"/>
 
 - 이렇게 Bytecode로 되어있는 bundle을 읽어올 경우 추가적인 장점은(relase build Type으로 확인)<br>
   1. 사용하는 Memory의 감소
