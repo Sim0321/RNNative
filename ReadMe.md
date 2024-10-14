@@ -268,4 +268,29 @@
   1. 사용하는 Memory의 감소
   2. AAB / APK 크기 감소 .
 
+## react-native-reanimated
+- React-Native에서 Animation을 Frame drop 없이 사용가능 하도록 만든 패키지
+- React-Native Animated가 가지고 있는 단점을 해결
+  - Main Thread와 JS Thread의 통신(병목 현상 발생)
+  - <img src="./image//animated_단점.png"  width="600" height="200"/>
+- 위와 같은 단점이 있어 react-native-reanimated는 animation 관련된 작업을 모두 Main Thread에서 실행
+- worklet을 이용하여 JS Thread로 전달
+
+### worklet
+- wroklet react-native-reanimated V2에 생김
+- 작은 조각의 javascript조각
+- 뷰 속성을 업데이트 하거나, 이벤트에 반응할 때 UI Thread에서 바로 실행시킬 수 있는 JS 조각
+- 사용법
+  ```js
+  const value = 50;
+  const funcA = () => {
+    "worklet" //함수 외부에 있는 값을 사용하더라도 함께 가져감
+    ... logic
+  }
+   ```
+
+### shared values
+- JS Thread와 Main Thread 모두에서 읽기 또는 수정이 가능한 값
+- Main Thread에서는 값이 변경됨을 바로 감지할 수 있어 읽기에 특화 됨
+
 ## 프로젝트
