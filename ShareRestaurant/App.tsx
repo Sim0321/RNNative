@@ -17,14 +17,8 @@ import {
   View,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import { Icon } from './src/components/Icons';
+import { NavigationContainer } from '@react-navigation/native';
+import { RootNavigation } from './src/navigation/RootNAvigation';
 
 
 function App(): React.JSX.Element {
@@ -32,8 +26,9 @@ function App(): React.JSX.Element {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-
-      <Icon name='home' size={16} color='#ff0000' />
+      <NavigationContainer>
+        <RootNavigation />
+      </NavigationContainer>
     </SafeAreaView>
   );
 }
