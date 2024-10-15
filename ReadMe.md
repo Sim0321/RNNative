@@ -290,6 +290,6 @@
 
 ### shared values
 - JS Thread와 Main Thread 모두에서 읽기 또는 수정이 가능한 값
-- Main Thread에서는 값이 변경됨을 바로 감지할 수 있어 읽기에 특화 됨
+- Main Thread에서는 값이 변경됨을 바로 감지할 수 있어 읽기에 특화 됨.
 
 ## 프로젝트
