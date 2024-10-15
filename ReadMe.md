@@ -17,9 +17,8 @@
 
 ## 명령어
 
-1. `react-native init[ProjectName] --template templateName`
+1. `npx react-native init 프로젝트 이름`
    - 최초 프로젝트 생성 커맨드
-   - templateName에 주로 typescript 관련 template 삽입
 2. `react-native run-ios`, `react-native run-android`
    - 앱을 실행 시켜주는 커맨드
 3. `react-native start`, `react-native start -- --reset-cache`(캐시가 남아있는 경우에)
