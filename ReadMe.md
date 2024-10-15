@@ -27,6 +27,7 @@
 4. `react-native log-android`,`react-native log-ios`
    - android/ios native log를 보기 위한 것
 
+
 ## Dependency Manager
 
 1. Gradle
@@ -290,6 +291,17 @@
 
 ### shared values
 - JS Thread와 Main Thread 모두에서 읽기 또는 수정이 가능한 값
-- Main Thread에서는 값이 변경됨을 바로 감지할 수 있어 읽기에 특화 됨.
+- Main Thread에서는 값이 변경됨을 바로 감지할 수 있어 읽기에 특화 됨
+
+## Sensor
+
+### 가속도 센서란?
+- 핸드폰의 움직임을 감지하기 위해 사용하는 센서
+- x,y,z로 좌표를 만들고 핸드폰이 움직임에 따라 변경된 값이 나옴
+- 자이로스코프 센서와 함께 사용되는 편
+
+### 자이로스코프 센서란?
+> Gyro: 회전하는 것
+- 핸드폰의 회전동작을 감지하고, 어느 방향인지 감지해서 어느정도로 회전 되어있는지를 감지하기 위한 것
 
 ## 프로젝트
