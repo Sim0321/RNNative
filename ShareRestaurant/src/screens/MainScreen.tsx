@@ -1,11 +1,34 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { View } from "react-native";
 import { Header } from "../components/Header/Header";
-import MapView from "react-native-maps";
+import MapView, { Marker } from "react-native-maps";
+import Geolocation from "@react-native-community/geolocation";
+
+type CurrentRegionType = {
+    latitude: number,
+    longitude: number
+}
 
 
 export const MainScreen: React.FC = () => {
-    // latitude : 37.5463 longitude: 127.0536
+    const [currentRegion, setCurrentRegion] = useState<CurrentRegionType>({
+        latitude: 37.5463,
+        longitude: 127.0536,
+    })
+
+    const getMyLocation = useCallback(() => {
+        Geolocation.getCurrentPosition((position) => {
+            setCurrentRegion({
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude
+            })
+        })
+    }, [])
+
+    useEffect(() => {
+        getMyLocation()
+    }, [getMyLocation])
+
     return (
         <View style={{ flex: 1 }}>
             <Header>
@@ -15,8 +38,13 @@ export const MainScreen: React.FC = () => {
             {/* latitudeDelta: 0.015, // 위도 범위
                 longitudeDelta: 0.0121 // 경도 범위 */}
             <MapView style={{ flex: 1 }} region={{
-                latitude: 37.5463, longitude: 127.0536, latitudeDelta: 0.015, longitudeDelta: 0.0121
-            }} />
+                latitude: currentRegion.latitude, longitude: currentRegion.longitude, latitudeDelta: 0.015, longitudeDelta: 0.0121
+            }} >
+                <Marker coordinate={{
+                    latitude: currentRegion.latitude,
+                    longitude: currentRegion.longitude
+                }} />
+            </MapView>
         </View>
     )
 }
