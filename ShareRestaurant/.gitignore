@@ -76,3 +76,6 @@ yarn-error.log
 
 # Ignore gradle.properties to keep API keys and other sensitive information private
 gradle.properties
+
+# Environment variables
+.env
