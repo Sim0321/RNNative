@@ -3,7 +3,8 @@ import { Text, View } from "react-native";
 import { Header } from "../components/Header/Header";
 import MapView, { Marker } from "react-native-maps";
 import Geolocation from "@react-native-community/geolocation";
-import { getAddressFromCoords } from "../utils/GeoUtils";
+import { getAddressFromCoords, getCoordsFromAddress, getCoordsFromKeyword } from "../utils/GeoUtils";
+import { SingleLineInput } from "../components/SingleLineInput";
 
 type CurrentRegionType = {
     latitude: number,
@@ -18,6 +19,8 @@ export const MainScreen: React.FC = () => {
     })
 
     const [currentAddress, setCurrentAddress] = useState<string | null>(null)
+
+    const [query, setQuery] = useState<string>('')
 
     const onChangeLocation = useCallback<(item: CurrentRegionType) => Promise<void>>(async (item) => {
         setCurrentRegion({
@@ -41,15 +44,41 @@ export const MainScreen: React.FC = () => {
 
     }, [])
 
+    // 주소 검색
+    const onFindAddress = useCallback<() => Promise<void>>(async () => {
+        // keyword로 검색하기
+        const keywordResult = await getCoordsFromKeyword(query)
+        console.log(keywordResult)
+        if (keywordResult !== null) {
+            setCurrentAddress(keywordResult.address)
+            setCurrentRegion({ latitude: parseFloat(keywordResult.latitude.toString()), longitude: parseFloat(keywordResult.longitude.toString()) })
+            return;
+        }
+
+        const addressResult = await getCoordsFromAddress(query)
+        if (addressResult === null) {
+            console.error('주소값을 찾기 못했습니다.')
+            return
+        }
+        setCurrentAddress(addressResult.address)
+        setCurrentRegion({ latitude: parseFloat(addressResult.latitude.toString()), longitude: parseFloat(addressResult.longitude.toString()) })
+    }, [query])
+
     useEffect(() => {
         getMyLocation()
     }, [getMyLocation])
 
     return (
         <View style={{ flex: 1 }}>
-            <Header>
+            {/* <Header>
                 <Header.Title title="MAIN" />
-            </Header>
+            </Header> */}
+
+            <View style={{ position: 'absolute', top: 24, left: 24, right: 24, zIndex: 1 }}>
+                <View style={{ backgroundColor: 'white' }}>
+                    <SingleLineInput value={query} placeholder="주소를 입력해 주세요" onChangeText={setQuery} onSubmitEditing={onFindAddress} />
+                </View>
+            </View>
 
             {/* latitudeDelta: 0.015, // 위도 범위
                 longitudeDelta: 0.0121 // 경도 범위 */}

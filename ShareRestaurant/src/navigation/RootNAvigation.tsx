@@ -17,3 +17,4 @@ export const RootNavigation: React.FC = () => {
         </Stack.Navigator>
     )
 }
+
