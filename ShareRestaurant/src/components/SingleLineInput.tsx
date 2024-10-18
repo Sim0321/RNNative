@@ -5,7 +5,7 @@ export const SingleLineInput: React.FC<{
   value: string;
   onChangeText: (text: string) => void;
   placeholder: string;
-  onSubmitEditing: () => void;
+  onSubmitEditing?: () => void;
   fontSize?: number;
 }> = props => {
   const [focused, setFocused] = useState(false);

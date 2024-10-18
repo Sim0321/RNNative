@@ -1849,12 +1849,12 @@ SPEC CHECKSUMS:
   FirebaseCoreInternal: ac26d09a70c730e497936430af4e60fb0c68ec4e
   FirebaseDatabase: 7f0bcea9a7c0554284019a6bac1d80e7288ee831
   FirebaseSharedSwift: d39c2ad64a11a8d936ce25a42b00df47078bb59c
-  fmt: 4c2741a687cc09f0634a2e2c72a838b99f1ff120
-  glog: 69ef571f3de08433d766d614c73a9838a06bf7eb
+  fmt: 8083860262b879fc92bca720969c91bdb88ada93
+  glog: 91ad4d651f7df0fc39ca2f142dd1ba7340f01a34
   GoogleUtilities: 26a3abef001b6533cf678d3eb38fd3f614b7872d
-  hermes-engine: ea92f60f37dba025e293cbe4b4a548fd26b610a0
+  hermes-engine: f0b39ff6681920dc595c3affa7db70abf8ca87d5
   leveldb-library: e8eadf9008a61f9e1dde3978c086d2b6d9b9dc28
-  RCT-Folly: 4464f4d875961fce86008d45f4ecf6cef6de0740
+  RCT-Folly: b81dfbb72e62e3e544fcc4935a18396977ba38b2
   RCTDeprecation: 726d24248aeab6d7180dac71a936bbca6a994ed1
   RCTRequired: a94e7febda6db0345d207e854323c37e3a31d93b
   RCTTypeSafety: 28e24a6e44f5cbf912c66dde6ab7e07d1059a205

@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {Text, View} from 'react-native';
+import {Platform, Pressable, Text, View} from 'react-native';
 import {Header} from '../components/Header/Header';
 import MapView, {Marker} from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
@@ -9,6 +9,9 @@ import {
   getCoordsFromKeyword,
 } from '../utils/GeoUtils';
 import {SingleLineInput} from '../components/SingleLineInput';
+import {useRootNavigation} from '../navigation/RootNavigation';
+import {RestaurantInfo} from '../model/Model';
+import {getRestaurantList} from '../utils/RealTimeDataBaseUtils';
 
 type CurrentRegionType = {
   latitude: number;
@@ -16,14 +19,18 @@ type CurrentRegionType = {
 };
 
 export const MainScreen: React.FC = () => {
+  const navigation = useRootNavigation<'Main'>();
+
   const [currentRegion, setCurrentRegion] = useState<CurrentRegionType>({
     latitude: 37.5463,
     longitude: 127.0536,
   });
 
-  const [currentAddress, setCurrentAddress] = useState<string | null>(null);
-
+  console.log(currentRegion);
   const [query, setQuery] = useState<string>('');
+  const [currentAddress, setCurrentAddress] = useState<string | null>(null);
+  const [isMapReady, setIsMapReady] = useState<boolean>(false);
+  const [markerList, setMarkerList] = useState<RestaurantInfo[]>([]);
 
   const onChangeLocation = useCallback<
     (item: CurrentRegionType) => Promise<void>
@@ -49,7 +56,6 @@ export const MainScreen: React.FC = () => {
   const onFindAddress = useCallback<() => Promise<void>>(async () => {
     // keyword로 검색하기
     const keywordResult = await getCoordsFromKeyword(query);
-    console.log(keywordResult);
     if (keywordResult !== null) {
       setCurrentAddress(keywordResult.address);
       setCurrentRegion({
@@ -70,6 +76,29 @@ export const MainScreen: React.FC = () => {
       longitude: parseFloat(addressResult.longitude.toString()),
     });
   }, [query]);
+
+  const onPressBottomAddress = useCallback(() => {
+    if (currentAddress === null) {
+      return;
+    } else {
+      navigation.push('Add', {
+        latitude: currentRegion.latitude,
+        longitude: currentRegion.longitude,
+        address: currentAddress,
+      });
+    }
+  }, [
+    currentAddress,
+    currentRegion.longitude,
+    currentRegion.latitude,
+    navigation,
+  ]);
+
+  const onMapReady = useCallback(async () => {
+    setIsMapReady(true);
+    const restaurantList = await getRestaurantList();
+    setMarkerList(restaurantList);
+  }, []);
 
   useEffect(() => {
     getMyLocation();
@@ -103,15 +132,34 @@ export const MainScreen: React.FC = () => {
           latitudeDelta: 0.015,
           longitudeDelta: 0.0121,
         }}
+        onMapReady={onMapReady}
         onLongPress={event => {
           onChangeLocation(event.nativeEvent.coordinate);
         }}>
-        <Marker
-          coordinate={{
-            latitude: currentRegion.latitude,
-            longitude: currentRegion.longitude,
-          }}
-        />
+        {isMapReady && (
+          <Marker
+            coordinate={{
+              latitude: currentRegion.latitude,
+              longitude: currentRegion.longitude,
+            }}
+          />
+        )}
+
+        {isMapReady &&
+          markerList.map((item, index) => {
+            return (
+              <Marker
+                key={`${item.title}-${index}`}
+                title={item.title}
+                description={item.address}
+                coordinate={{
+                  latitude: item.latitude,
+                  longitude: item.longitude,
+                }}
+                pinColor="blue"
+              />
+            );
+          })}
       </MapView>
 
       {currentAddress !== null && (
@@ -124,7 +172,8 @@ export const MainScreen: React.FC = () => {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <View
+          <Pressable
+            onPress={onPressBottomAddress}
             style={{
               backgroundColor: 'gray',
               paddingHorizontal: 24,
@@ -132,7 +181,7 @@ export const MainScreen: React.FC = () => {
               borderRadius: 30,
             }}>
             <Text style={{fontSize: 16, color: 'white'}}>{currentAddress}</Text>
-          </View>
+          </Pressable>
         </View>
       )}
     </View>
