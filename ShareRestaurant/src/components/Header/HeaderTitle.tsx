@@ -1,10 +1,10 @@
 import React from 'react';
-import { Typography } from '../Typography';
+import {Typography} from '../Typography';
 
 export const HeaderTitle: React.FC<{
-    title: string;
+  title: string;
 }> = props => (
-    <Typography fontSize={18} numberOfLines={1}>
-        {props.title}
-    </Typography>
+  <Typography fontSize={18} numberOfLines={1}>
+    {props.title}
+  </Typography>
 );

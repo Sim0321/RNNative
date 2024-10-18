@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { PropsWithChildren } from 'react';
+import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -17,22 +17,17 @@ import {
   View,
 } from 'react-native';
 
-import { NavigationContainer } from '@react-navigation/native';
-import { RootNavigation } from './src/navigation/RootNAvigation';
-
+import {NavigationContainer} from '@react-navigation/native';
+import {RootNavigation} from './src/navigation/RootNavigation';
 
 function App(): React.JSX.Element {
-
-
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{flex: 1}}>
       <NavigationContainer>
         <RootNavigation />
       </NavigationContainer>
     </SafeAreaView>
   );
 }
-
-
 
 export default App;

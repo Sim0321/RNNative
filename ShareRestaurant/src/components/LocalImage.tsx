@@ -1,22 +1,20 @@
 import React from 'react';
-import { Image as RNImage, ImageProps, StyleProp } from 'react-native';
-
-
+import {Image as RNImage, ImageProps, StyleProp} from 'react-native';
 
 export const LocalImage: React.FC<{
-    localAsset: number;
-    width: number;
-    height: number;
-    style?: StyleProp<ImageProps>;
+  localAsset: number;
+  width: number;
+  height: number;
+  style?: StyleProp<ImageProps>;
 }> = props => (
-    <RNImage
-        source={props.localAsset}
-        style={[
-            props.style,
-            {
-                width: props.width,
-                height: props.height,
-            },
-        ]}
-    />
+  <RNImage
+    source={props.localAsset}
+    style={[
+      props.style,
+      {
+        width: props.width,
+        height: props.height,
+      },
+    ]}
+  />
 );
