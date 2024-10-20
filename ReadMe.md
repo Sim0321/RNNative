@@ -26,7 +26,8 @@
    - webpack과 비슷하게 javascript를 하나의 파일로 만들기 위한 역할
 4. `react-native log-android`,`react-native log-ios`
    - android/ios native log를 보기 위한 것
-
+5. `yarn start --reset-cache`
+   - metro server 초기화 및 재시작
 
 ## Dependency Manager
 
@@ -104,6 +105,7 @@
 
 - 특정 리소스를 필요로 할 때 사용자에게 허용 할것인지 물어보는 것
 - ## Ios Permissions flow
+
   <img src="./image/ios_permission_flow.png"  width="400" height="200"/>
 
 - ## Android
@@ -142,6 +144,7 @@
 ## React Native 동작 원리
 
 <img src="./image/rn_동작원리.png"  width="400" height="200"/> <br>
+
 - Thread란?
   - 실행되는 프로세스 내에서 실제로 작업을 실행하는 주체
   - 명령어를 실행하여 처리하는 주체
@@ -269,6 +272,7 @@
   2. AAB / APK 크기 감소 .
 
 ## react-native-reanimated
+
 - React-Native에서 Animation을 Frame drop 없이 사용가능 하도록 만든 패키지
 - React-Native Animated가 가지고 있는 단점을 해결
   - Main Thread와 JS Thread의 통신(병목 현상 발생)
@@ -277,6 +281,7 @@
 - worklet을 이용하여 JS Thread로 전달
 
 ### worklet
+
 - wroklet react-native-reanimated V2에 생김
 - 작은 조각의 javascript조각
 - 뷰 속성을 업데이트 하거나, 이벤트에 반응할 때 UI Thread에서 바로 실행시킬 수 있는 JS 조각
@@ -287,21 +292,45 @@
     "worklet" //함수 외부에 있는 값을 사용하더라도 함께 가져감
     ... logic
   }
-   ```
+  ```
 
 ### shared values
+
 - JS Thread와 Main Thread 모두에서 읽기 또는 수정이 가능한 값
 - Main Thread에서는 값이 변경됨을 바로 감지할 수 있어 읽기에 특화 됨
 
 ## Sensor
 
 ### 가속도 센서란?
+
 - 핸드폰의 움직임을 감지하기 위해 사용하는 센서
 - x,y,z로 좌표를 만들고 핸드폰이 움직임에 따라 변경된 값이 나옴
 - 자이로스코프 센서와 함께 사용되는 편
 
 ### 자이로스코프 센서란?
+
 > Gyro: 회전하는 것
+
 - 핸드폰의 회전동작을 감지하고, 어느 방향인지 감지해서 어느정도로 회전 되어있는지를 감지하기 위한 것
 
 ## 프로젝트
+
+<details>
+<summary>맛집 공유 앱</summary>
+  <div markdown="1">
+
+### TO-DO
+
+1. ios, android kakao Map으로 통일시키기
+
+### ISSUE
+
+- ios
+  - 첫 렌더링 시 파란색 핀들의 title, desciption 말풍선이 잘 나오지만, 현위치의 빨강색 핀을 누른 이후에는 파란색 핀들의 말풍선이 생겼다 빠르게 사라지는 이슈
+
+---
+
+- android
+
+  </div>
+</details>

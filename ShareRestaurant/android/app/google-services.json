@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1042686134795",
+    "firebase_url": "https://share-restaurant-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "share-restaurant",
+    "storage_bucket": "share-restaurant.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1042686134795:android:61c0c1dbbbf8025f2ed50e",
+        "android_client_info": {
+          "package_name": "com.sharerestaurant"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoFQ60nFD3A_H5VWo7B4QIWz1BgrjKF2c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
