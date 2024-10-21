@@ -13,6 +13,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		232F2A432CC628CA00570457 /* account_history.db in Resources */ = {isa = PBXBuildFile; fileRef = 232F2A422CC628CA00570457 /* account_history.db */; };
 		7699B88040F8A987B510C191 /* libPods-FinancialEdger-FinancialEdgerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-FinancialEdger-FinancialEdgerTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,7 @@
 		232F2A3F2CC5EC9900570457 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		232F2A402CC5EC9900570457 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
 		232F2A412CC5EC9900570457 /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zocial.ttf; sourceTree = "<group>"; };
+		232F2A422CC628CA00570457 /* account_history.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = account_history.db; path = FinancialEdger/www/account_history.db; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-FinancialEdger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinancialEdger.debug.xcconfig"; path = "Target Support Files/Pods-FinancialEdger/Pods-FinancialEdger.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-FinancialEdger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinancialEdger.release.xcconfig"; path = "Target Support Files/Pods-FinancialEdger/Pods-FinancialEdger.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-FinancialEdger-FinancialEdgerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FinancialEdger-FinancialEdgerTests.debug.xcconfig"; path = "Target Support Files/Pods-FinancialEdger-FinancialEdgerTests/Pods-FinancialEdger-FinancialEdgerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		13B07FAE1A68108700A75B9A /* FinancialEdger */ = {
 			isa = PBXGroup;
 			children = (
+				232F2A422CC628CA00570457 /* account_history.db */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -116,6 +119,7 @@
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 				7A97B7EAA2795616F3848B2C /* PrivacyInfo.xcprivacy */,
+				232F2A2E2CC5EC9000570457 /* Fonts */,
 			);
 			name = FinancialEdger;
 			sourceTree = "<group>";
@@ -166,7 +170,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				232F2A2E2CC5EC9000570457 /* Fonts */,
 				13B07FAE1A68108700A75B9A /* FinancialEdger */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* FinancialEdgerTests */,
@@ -292,6 +295,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				232F2A432CC628CA00570457 /* account_history.db in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				0FCBC1B1005C413C0DDA9CD4 /* PrivacyInfo.xcprivacy in Resources */,
@@ -638,10 +642,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -714,10 +715,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;

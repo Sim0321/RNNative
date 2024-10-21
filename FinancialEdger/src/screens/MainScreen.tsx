@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {FlatList, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {FlatList, Platform, View} from 'react-native';
 import {Header} from '../components/Header/Header';
 import {FinancialEdgerHistory} from '../data/FinancialEdgerHistory';
 import {AccountHistoryListItemView} from '../components/AccountHistoryListItemView';
@@ -8,11 +8,30 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {Icon} from '../components/Icons';
 import {Button} from '../components/Button';
 
+import SQLite from 'react-native-sqlite-storage';
+
 const now = new Date().getTime();
 
 export const MainScreen: React.FC = () => {
   const navigation = useRootNavigation();
   const safeAreaInset = useSafeAreaInsets();
+
+  useEffect(() => {
+    SQLite.openDatabase(
+      {
+        name: 'account_history.db',
+        createFromLocation: '~www/account_history.db',
+        location: 'default',
+      },
+      () => {
+        console.log('DataBase Succeess');
+      },
+      () => {
+        console.log('DataBase Failed');
+      },
+    );
+  }, []);
+
   const [list] = useState<FinancialEdgerHistory[]>([
     {
       id: 0,
