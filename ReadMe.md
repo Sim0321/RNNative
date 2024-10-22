@@ -319,6 +319,37 @@
   1. Github에 fork를 통해 내 소유의 Repo로 전환이후 잘못된 부분에 대한 commit을 통한 수정. 이후 원래 repo에서 해당 내용을 patch하게 되는 경우, 애써 만들었던 내용을 온전히 버려야 함
   2. patch-package 사용. npm install 이후에 스크립트를 사용하여 버전을 비교한 뒤 지정한 패치 내용이 적용 되는 것
 
+### react-native-sqlite-storage
+
+- SQLite를 react-native에서도 사용 가능하도록 만든 패키지
+
+#### SQL이란?
+
+- Structured Query Language의 약자 "구조화 된 질의 언어". 즉, 데이터 베이스에서 데이터를 가져오기 위한 언어
+
+#### 관계형 데이터베이스란?
+
+- 표를 만드는 것처럼 데이터를 구조화 시켜 저장하는 것. SQL은 표에 있는 데이터들을 가져오도록 명령하는 언어
+
+1. INSERT
+   - 어떠한 값을 추가하기 위한 구문
+   - `INSERT INTO table_name($column1, $column2, $column3)`
+2. UPDATE
+   - 어떠한 값을 수정하기 위한 구문
+   - `UPDATE table_name`
+3. DELETE
+   - 어떠한 값을 삭제하기 위한 구문
+   - `DELETE FROM table_name WHERE ${value}={value}`
+4. SELECT
+   - 어떠한 값을 조회하기 위한 구문
+   - `SELECT*FROM table_name WHERE value={value}`
+
+#### SQLite
+
+- SQL + Lite의 합성어
+- 모바일 환경에 적합하게 가볍게 설계 되어있음
+- 앱을 만드는데 있어서 필요한 만큼의 기능들은 제공됨
+
 ## 프로젝트
 
 <details>

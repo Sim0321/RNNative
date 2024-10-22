@@ -29,7 +29,10 @@ export const MultiLineInput: React.FC<{
         onChangeText={props.onChangeText}
         placeholder={props.placeholder}
         onSubmitEditing={props.onSubmitEditing}
-        style={{fontSize: props.fontSize ?? 20, height: props.height ?? 200}}
+        style={{
+          fontSize: props.fontSize ?? 20,
+          height: props.height ?? 200,
+        }}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
       />
