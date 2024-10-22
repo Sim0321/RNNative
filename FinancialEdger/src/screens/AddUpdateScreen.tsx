@@ -48,7 +48,16 @@ export const AddUpdateScreen: React.FC = () => {
 
   const onPressPhoto = useCallback(() => {}, []);
 
-  const onPressCalandar = useCallback(() => {}, []);
+  const onPressCalandar = useCallback(() => {
+    navigation.push('CalenderSelect', {
+      onSelectDay: date => {
+        setItem(prevState => ({
+          ...prevState,
+          date: date,
+        }));
+      },
+    });
+  }, [navigation]);
 
   const onChangeComment = useCallback<(text: string) => void>(text => {
     setItem(prevState => ({

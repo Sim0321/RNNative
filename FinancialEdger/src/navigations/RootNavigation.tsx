@@ -8,6 +8,7 @@ import {MonthlyScreen} from '../screens/MonthlyScreen';
 import {DetailScreen} from '../screens/DetailScreen';
 import {FinancialEdgerHistory} from '../data/FinancialEdgerHistory';
 import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
+import {CalenderSelectScreen} from '../screens/CalenderSelectScreen';
 
 type ScreenParams = {
   Add: undefined;
@@ -15,6 +16,7 @@ type ScreenParams = {
   Update: {item: FinancialEdgerHistory};
   Detail: {item: FinancialEdgerHistory};
   MonthlyAverage: undefined;
+  CalenderSelect: {onSelectDay: (date: number) => void};
 };
 
 const Stack = createNativeStackNavigator<ScreenParams>();
@@ -30,6 +32,7 @@ export const RootNavigation = () => {
       <Stack.Screen name="Update" component={AddUpdateScreen} />
       <Stack.Screen name="MonthlyAverage" component={MonthlyScreen} />
       <Stack.Screen name="Detail" component={DetailScreen} />
+      <Stack.Screen name="CalenderSelect" component={CalenderSelectScreen} />
     </Stack.Navigator>
   );
 };
